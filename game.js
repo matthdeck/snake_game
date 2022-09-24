@@ -1,6 +1,7 @@
-import { SNAKE_SPEED, update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection } from './snake.js'
-import { update as updateFood, draw as drawFood } from './food.js'
+import { SNAKE_SPEED, update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, snakeCellValues } from './snake.js'
+import { update as updateFood, draw as drawFood, foodCellValue } from './food.js'
 import{ outsideGrid } from './grid.js'
+import { heuristic } from './perfect.js'
 
 let lastRenderTime = 0
 let gameOver = false
@@ -31,6 +32,7 @@ function update() {
 	updateSnake()
   updateFood()
   checkDeath()
+  heuristic(foodCellValue, 21, 21, snakeCellValues(), getSnakeHead())
 }
 
 function draw() {
