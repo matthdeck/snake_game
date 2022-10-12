@@ -2,21 +2,22 @@ import { getInputDirection } from "./input.js"
 
 
 
-function getSnakeSpeed() {
+export function getSnakeSpeed() {
 	let e = document.getElementById("snake-speed")
 	let value = e.value
 	switch (value) {
 		case 'slow':
-			return 2.5
-		case 'medium':
 			return 5
-		case 'fast':
+		case 'medium':
 			return 10
+		case 'fast':
+			return 15
 		case 'insane':
-			return 9
+			return 20
+		default:
+			return 10
 	}
 }
-export const SNAKE_SPEED = getSnakeSpeed()
 
 const snakeBody = [{ x: 11, y: 11}]
 
