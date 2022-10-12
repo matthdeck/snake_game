@@ -19,7 +19,6 @@ const search = (start, end, xMax, yMax, snake) => {
 
   while (queue.length) {
     const current = queue.shift();
-    console.log(current, end)                  //START HERE
     const snakeShifted = shift(
       snake,
       (paths[current] = paths[current] || [start])
@@ -81,6 +80,5 @@ export function heuristic(cell, xLength, yLength, snake, point) {
   if (pathToTail) {
     return size - pathToTail.length;
   }
-  // console.log(size * 2)
   return size * 2;
 }

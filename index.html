@@ -10,10 +10,35 @@
             height: 100vh;
             width: 100vw;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             margin: 0;
             background-color: black;
+        }
+
+        #game-features {
+            justify-content: space-between;
+        }
+
+        #score {
+            height: 10vh;
+            width: 10vh;
+            color: #CCC;
+            font-size: 1.5rem;
+            align-self: flex-start;
+        }
+
+        #snake-speed {
+            /* height: 10vh;
+            width: 10vh; */
+            color: #CCC;
+            font-size: 1.5rem;
+            align-self: flex-start;
+        }
+
+        label {
+            color: #CCC;
+            font-size: 1.5rem;
         }
 
         #game-board {
@@ -28,15 +53,31 @@
         .snake {
             background-color: hsl(200, 100%, 50%);
             border: .25vmin solid black;
+            border-radius: 50%;
+            animation-name: slide;
+            animation-timing-function: linear;
         }
 
         .food {
-            background-color: hsl(50, 100%, 50%);
-            border: .25vmin solid black;
+            /* background-color: hsl(50, 100%, 50%);
+            border: .25vmin solid black; */
+            text-align: center;
+            font-size: 1.5rem;
         }
     </style>
     <script src="game.js" defer type="module"></script>
 </head>
+<div id="game-features">
+    <div id="score">Score: </div>
+    <label for="snake-speed">Snake Speed:</label>
+        <select id="snake-speed">
+            <option value= "">--select speed--</option>
+            <option value="slow">Slow</option>
+            <option value="medium">Medium</option>
+            <option value="fast">Fast</option>
+            <option value="insane">Insane!</option>
+        </select>  
+</div>
 <body>
     <div id="game-board"></div>
 </body>

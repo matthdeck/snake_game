@@ -1,4 +1,4 @@
-import { SNAKE_SPEED, update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, snakeCellValues } from './snake.js'
+import { SNAKE_SPEED, update as updateSnake, draw as drawSnake, getSnakeHead, getSnakeHeadValues, snakeIntersection, snakeCellValues } from './snake.js'
 import { update as updateFood, draw as drawFood, foodCellValue } from './food.js'
 import{ outsideGrid } from './grid.js'
 import { heuristic } from './perfect.js'
@@ -32,13 +32,14 @@ function update() {
 	updateSnake()
   updateFood()
   checkDeath()
-  heuristic(foodCellValue, 21, 21, snakeCellValues(), getSnakeHead())
+  
 }
 
 function draw() {
   gameBoard.innerHTML = ''
 	drawSnake(gameBoard)
   drawFood(gameBoard)
+  // console.log(heuristic(foodCellValue, 21, 21, snakeCellValues(), getSnakeHeadValues()))
 }
 
 function checkDeath() {
