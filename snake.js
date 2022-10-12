@@ -1,9 +1,10 @@
 import { getInputDirection } from "./input.js"
 
+
+
 function getSnakeSpeed() {
 	let e = document.getElementById("snake-speed")
 	let value = e.value
-	console.log(value)
 	switch (value) {
 		case 'slow':
 			return 2.5

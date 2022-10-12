@@ -7,26 +7,30 @@ let lastRenderTime = 0
 let gameOver = false
 let gameBoard = document.getElementById('game-board')
 
-function main(currentTime) {
+export function main(currentTime) {
   if (gameOver) {
     if (confirm('You lost. Press ok to restart.')) {
       window.location = '/'
     }
     return
   }
-
+console.log(SNAKE_SPEED)
   window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
 
-  console.log('dgf')
   lastRenderTime = currentTime
 
 	update()
 	draw()
 }
 
-window.requestAnimationFrame(main)
+let speed = document.getElementById('snake-speed')
+speed.addEventListener('change', () => {
+  console.log('working')
+  window.requestAnimationFrame(main)
+})
+// window.requestAnimationFrame(main) 
 
 function update() {
 	updateSnake()
