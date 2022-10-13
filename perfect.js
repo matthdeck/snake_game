@@ -1,4 +1,4 @@
-const adjacentes = (a, xMax, yMax) =>
+export const adjacentes = (a, xMax, yMax) =>
   [
     [a[0], a[1] - 1],
     [a[0] + 1, a[1]],

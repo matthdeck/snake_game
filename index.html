@@ -17,7 +17,9 @@
         }
 
         #game-features {
+            display: flex;
             justify-content: space-between;
+            flex-flow: column;
         }
 
         #score {
@@ -69,7 +71,7 @@
             /* background-color: hsl(50, 100%, 50%);
             border: .25vmin solid black; */
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 3.5vmin;
         }
     </style>
     <script src="game.js" defer type="module"></script>
@@ -80,12 +82,14 @@
         <p id="score-count" type="number"></p>
     </div>
     <label for="snake-speed">Snake Speed: </label>
-        <select id="snake-speed">
-            <option value="slow">Slow</option>
-            <option value="medium" selected>Medium</option>
-            <option value="fast">Fast</option>
-            <option value="insane">Insane!</option>
-        </select> 
+    <select id="snake-speed">
+        <option value="slow">Slow</option>
+        <option value="medium" selected>Medium</option>
+        <option value="fast">Fast</option>
+        <option value="insane">Insane!</option>
+    </select>
+    <label for="expansion-rate">Expansion Rate:</label>
+    <input type="number" id="expansion-rate" value="1" max="15" min="1" size="1"> 
 </div>
 <body>
     <div id="game-board"></div>

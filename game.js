@@ -1,7 +1,7 @@
 import { getSnakeSpeed, update as updateSnake, draw as drawSnake, getSnakeHead, getSnakeHeadValues, snakeIntersection, snakeCellValues } from './snake.js'
-import { update as updateFood, draw as drawFood, foodCellValue } from './food.js'
+import { getExpansionRate, update as updateFood, draw as drawFood, foodCellValue } from './food.js'
 import{ outsideGrid } from './grid.js'
-import { heuristic } from './perfect.js'
+import { heuristic, adjacentes } from './perfect.js'
 
 let lastRenderTime = 0
 let gameOver = false
@@ -14,6 +14,20 @@ export function main(currentTime) {
     }
     return
   }
+
+  if (getExpansionRate() > 15) {
+    if (confirm('expansion rate must be 15 or less')) {
+      window.location = '/'
+    }
+    return
+  }
+
+  if (getExpansionRate() < 1) {
+    if (confirm('expansion rate must be 1 or higher')) {
+      window.location = '/'
+    }
+    return
+  }  
 
   let snakeSpeed = getSnakeSpeed()
   window.requestAnimationFrame(main)
@@ -34,7 +48,6 @@ function update() {
 	updateSnake()
   updateFood()
   checkDeath()
-  
 }
 
 function draw() {
@@ -42,6 +55,7 @@ function draw() {
 	drawSnake(gameBoard)
   drawFood(gameBoard)
   // console.log(heuristic(foodCellValue, 21, 21, snakeCellValues(), getSnakeHeadValues()))
+  // console.log(adjacentes)
 }
 
 function checkDeath() {

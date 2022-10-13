@@ -5,7 +5,11 @@ import { randomGridPosition } from './grid.js'
 let food = getRandomFoodPosition()
 export const gameScoreCount = 0
 export let foodCellValue = [food.x, food.y]
-const EXPANSION_RATE = 5
+
+export function getExpansionRate() {
+  let e = document.getElementById("expansion-rate")
+  return e.value
+}
 
 export function update() {
 	if (onSnake(food)) {
@@ -13,7 +17,7 @@ export function update() {
     let number = count.innerHTML
     number++
     count.innerHTML = number
-    expandSnake(EXPANSION_RATE)
+    expandSnake(getExpansionRate())
     food = getRandomFoodPosition()
     foodCellValue = [food.x, food.y]
   }

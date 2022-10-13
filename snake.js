@@ -1,7 +1,5 @@
 import { getInputDirection } from "./input.js"
 
-
-
 export function getSnakeSpeed() {
 	let e = document.getElementById("snake-speed")
 	let value = e.value
