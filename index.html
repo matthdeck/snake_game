@@ -20,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             flex-flow: column;
+            
         }
 
         #score {
@@ -38,8 +39,6 @@
         }
 
         #snake-speed {
-            /* height: 10vh;
-            width: 10vh; */
             color: #CCC;
             font-size: 1.5rem;
             align-self: flex-start;
@@ -52,8 +51,8 @@
 
         #game-board {
             background-color: #CCC;
-            width: 100vmin;
-            height: 100vmin;
+            width: 75vmin;
+            height: 75vmin;
             display: grid;
             grid-template-rows: repeat(21, 1fr);
             grid-template-columns: repeat(21, 1fr);
@@ -76,22 +75,22 @@
     </style>
     <script src="game.js" defer type="module"></script>
 </head>
-<div id="game-features">
-    <div id="score">
-        <p>Score:</p>
-        <p id="score-count" type="number"></p>
-    </div>
-    <label for="snake-speed">Snake Speed: </label>
-    <select id="snake-speed">
-        <option value="slow">Slow</option>
-        <option value="medium" selected>Medium</option>
-        <option value="fast">Fast</option>
-        <option value="insane">Insane!</option>
-    </select>
-    <label for="expansion-rate">Expansion Rate:</label>
-    <input type="number" id="expansion-rate" value="1" max="15" min="1" size="1"> 
-</div>
 <body>
+    <div id="game-features">
+        <div id="score">
+            <p>Score:</p>
+            <p id="score-count" type="number"></p>
+        </div>
+        <label for="snake-speed">Snake Speed: </label>
+        <select id="snake-speed">
+            <option value="slow">Slow</option>
+            <option value="medium" selected>Medium</option>
+            <option value="fast">Fast</option>
+            <option value="insane">Insane!</option>
+        </select>
+        <label for="expansion-rate">Expansion Rate:</label>
+        <input type="number" id="expansion-rate" value="1" max="15" min="1" size="1"> 
+    </div>
     <div id="game-board"></div>
 </body>
 </html>
